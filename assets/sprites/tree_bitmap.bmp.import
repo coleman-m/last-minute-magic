@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bm6ijexk18b65"
+path="res://.godot/imported/tree_bitmap.bmp-f22c478ec15ed9c26a6a21278e0bc350.res"
+
+[deps]
+
+source_file="res://assets/sprites/tree_bitmap.bmp"
+dest_files=["res://.godot/imported/tree_bitmap.bmp-f22c478ec15ed9c26a6a21278e0bc350.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

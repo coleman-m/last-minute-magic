@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://mxn7xs21rt1l"]
+
+[ext_resource type="Script" uid="uid://c1lpnd1j4a6qk" path="res://scenes/paper_snowflake/paper_cutting_test_scene.gd" id="1_gnhhg"]
+
+[node name="PaperCuttingTestScene" type="Node2D"]
+script = ExtResource("1_gnhhg")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -1
+position = Vector2(350, 400)
+polygon = PackedVector2Array(0, 0, 400, 0, 346.41, -200)
