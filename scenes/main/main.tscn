@@ -1,18 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://bcg6m5xsbgw4g"]
+[gd_scene load_steps=17 format=3 uid="uid://bcg6m5xsbgw4g"]
 
 [ext_resource type="Texture2D" uid="uid://cd8lfq868pxox" path="res://ancillary/20260109_last_minute_magic_background_mock_v1.png" id="1_hyk8p"]
-[ext_resource type="Script" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
+[ext_resource type="Script" uid="uid://gyy4exl703hc" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
 [ext_resource type="Texture2D" uid="uid://dv88hcfogti0o" path="res://assets/sprites/tree_textures.png" id="2_iuonh"]
 [ext_resource type="BitMap" uid="uid://bm6ijexk18b65" path="res://assets/sprites/tree_bitmap.bmp" id="3_k2fmo"]
 [ext_resource type="Texture2D" uid="uid://c86atbgrb2jh" path="res://assets/sprites/present_textures.png" id="4_6q06x"]
 [ext_resource type="BitMap" uid="uid://ctc4r7fee00yk" path="res://assets/sprites/present_bitmap.bmp" id="5_ow5a4"]
 [ext_resource type="Script" uid="uid://dknyu7s6mlfnl" path="res://scenes/result_viewer.gd" id="6_ow5a4"]
 [ext_resource type="Script" uid="uid://2sw35mgoxbs2" path="res://scenes/main/main_camera.gd" id="7_b1x3f"]
-[ext_resource type="Script" uid="uid://bqp4bbidufn0j" path="res://scenes/main/tree_edit_zone.gd" id="9_a8run"]
-[ext_resource type="Texture2D" uid="uid://2vr7d3f4gvl3" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_sprite_v2.png" id="10_a8run"]
-[ext_resource type="Script" path="res://scenes/result_viewer.gd" id="6_ow5a4"]
-[ext_resource type="Script" path="res://scenes/main/main_camera.gd" id="7_b1x3f"]
-[ext_resource type="Texture2D" uid="uid://bvdyklxc2jhch" path="res://icon.svg" id="9_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://cl15087tosvlm" path="res://scenes/tree/tree_edit_zone.tscn" id="9_b1x3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k2fmo"]
 atlas = ExtResource("2_iuonh")
@@ -93,22 +89,7 @@ script = ExtResource("6_ow5a4")
 visibility_layer = 3
 position = Vector2(2880, 540)
 
-[node name="TreeEditZone" type="Node2D" parent="."]
-visibility_layer = 3
+[node name="TreeEditZone" parent="." instance=ExtResource("9_b1x3f")]
 position = Vector2(1920, 0)
-script = ExtResource("9_a8run")
-
-[node name="EditedTree" type="Sprite2D" parent="TreeEditZone"]
-visibility_layer = 3
-position = Vector2(1195, 567)
-texture = ExtResource("10_a8run")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="TreeEditZone"]
-offset_left = 1376.0
-offset_top = 633.0
-offset_right = 1541.0
-offset_bottom = 691.0
-bbcode_enabled = true
-text = "[shake]Edit the tree!"
 
 [connection signal="pressed" from="SelectionScreen/TreeButton" to="SelectionScreen" method="_on_tree_button_pressed"]
