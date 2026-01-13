@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx88w8jrita2g"]
+
+[ext_resource type="Texture2D" uid="uid://dg2ld0kjkoiwq" path="res://scenes/common/assets/20260112_last_minute_magic_ornament_01.png" id="1_vvo84"]
+
+[node name="Ornament" type="Sprite2D"]
+visibility_layer = 3
+texture = ExtResource("1_vvo84")
