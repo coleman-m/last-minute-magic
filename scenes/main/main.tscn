@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://bcg6m5xsbgw4g"]
 
 [ext_resource type="Texture2D" uid="uid://cd8lfq868pxox" path="res://ancillary/20260109_last_minute_magic_background_mock_v1.png" id="1_hyk8p"]
-[ext_resource type="Script" uid="uid://gyy4exl703hc" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
+[ext_resource type="Script" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
 [ext_resource type="Texture2D" uid="uid://dv88hcfogti0o" path="res://assets/sprites/tree_textures.png" id="2_iuonh"]
 [ext_resource type="BitMap" uid="uid://bm6ijexk18b65" path="res://assets/sprites/tree_bitmap.bmp" id="3_k2fmo"]
 [ext_resource type="Texture2D" uid="uid://c86atbgrb2jh" path="res://assets/sprites/present_textures.png" id="4_6q06x"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://2sw35mgoxbs2" path="res://scenes/main/main_camera.gd" id="7_b1x3f"]
 [ext_resource type="Script" uid="uid://bqp4bbidufn0j" path="res://scenes/main/tree_edit_zone.gd" id="9_a8run"]
 [ext_resource type="Texture2D" uid="uid://2vr7d3f4gvl3" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_sprite_v2.png" id="10_a8run"]
+[ext_resource type="Script" path="res://scenes/result_viewer.gd" id="6_ow5a4"]
+[ext_resource type="Script" path="res://scenes/main/main_camera.gd" id="7_b1x3f"]
+[ext_resource type="Texture2D" uid="uid://bvdyklxc2jhch" path="res://icon.svg" id="9_b1x3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k2fmo"]
 atlas = ExtResource("2_iuonh")
