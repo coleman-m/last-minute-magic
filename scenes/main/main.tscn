@@ -5,7 +5,7 @@
 [ext_resource type="BitMap" uid="uid://bm6ijexk18b65" path="res://assets/sprites/tree_bitmap.bmp" id="3_k2fmo"]
 [ext_resource type="Texture2D" uid="uid://c86atbgrb2jh" path="res://assets/sprites/present_textures.png" id="4_6q06x"]
 [ext_resource type="BitMap" uid="uid://ctc4r7fee00yk" path="res://assets/sprites/present_bitmap.bmp" id="5_ow5a4"]
-[ext_resource type="Script" uid="uid://dknyu7s6mlfnl" path="res://scenes/result_viewer.gd" id="6_ow5a4"]
+[ext_resource type="Script" path="res://scenes/result_viewer.gd" id="6_ow5a4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k2fmo"]
 atlas = ExtResource("2_iuonh")
