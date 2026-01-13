@@ -1,26 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcg6m5xsbgw4g"]
+[gd_scene load_steps=14 format=3 uid="uid://bcg6m5xsbgw4g"]
 
 [ext_resource type="Texture2D" uid="uid://cd8lfq868pxox" path="res://ancillary/20260109_last_minute_magic_background_mock_v1.png" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://gyy4exl703hc" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
-[ext_resource type="Texture2D" uid="uid://dv88hcfogti0o" path="res://assets/sprites/tree_textures.png" id="2_iuonh"]
-[ext_resource type="BitMap" uid="uid://bm6ijexk18b65" path="res://assets/sprites/tree_bitmap.bmp" id="3_k2fmo"]
+[ext_resource type="Texture2D" uid="uid://2vr7d3f4gvl3" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_sprite_v2.png" id="3_a8run"]
 [ext_resource type="Texture2D" uid="uid://c86atbgrb2jh" path="res://assets/sprites/present_textures.png" id="4_6q06x"]
+[ext_resource type="BitMap" uid="uid://b73tou6vtikhj" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_bitmap.bmp" id="5_ouso4"]
 [ext_resource type="BitMap" uid="uid://ctc4r7fee00yk" path="res://assets/sprites/present_bitmap.bmp" id="5_ow5a4"]
 [ext_resource type="Script" uid="uid://dknyu7s6mlfnl" path="res://scenes/result_viewer.gd" id="6_ow5a4"]
 [ext_resource type="Script" uid="uid://2sw35mgoxbs2" path="res://scenes/main/main_camera.gd" id="7_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://cl15087tosvlm" path="res://scenes/tree/tree_edit_zone.tscn" id="9_b1x3f"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k2fmo"]
-atlas = ExtResource("2_iuonh")
-region = Rect2(0, 0, 128, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3cfh"]
-atlas = ExtResource("2_iuonh")
-region = Rect2(256, 0, 128, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6q06x"]
-atlas = ExtResource("2_iuonh")
-region = Rect2(128, 0, 128, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hujxm"]
 atlas = ExtResource("4_6q06x")
@@ -48,15 +36,14 @@ position = Vector2(909, 549)
 texture = ExtResource("1_hyk8p")
 
 [node name="TreeButton" type="TextureButton" parent="SelectionScreen"]
-offset_left = 890.0
-offset_top = 430.0
-offset_right = 1018.0
-offset_bottom = 558.0
-scale = Vector2(5, 5)
-texture_normal = SubResource("AtlasTexture_k2fmo")
-texture_pressed = SubResource("AtlasTexture_l3cfh")
-texture_hover = SubResource("AtlasTexture_6q06x")
-texture_click_mask = ExtResource("3_k2fmo")
+offset_left = 683.0
+offset_top = 55.0
+offset_right = 1707.0
+offset_bottom = 1079.0
+texture_normal = ExtResource("3_a8run")
+texture_pressed = ExtResource("3_a8run")
+texture_hover = ExtResource("3_a8run")
+texture_click_mask = ExtResource("5_ouso4")
 
 [node name="PresentButton" type="TextureButton" parent="SelectionScreen"]
 offset_left = 788.0
