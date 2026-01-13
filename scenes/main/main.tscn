@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcg6m5xsbgw4g"]
+[gd_scene load_steps=15 format=3 uid="uid://bcg6m5xsbgw4g"]
 
 [ext_resource type="Texture2D" uid="uid://cd8lfq868pxox" path="res://ancillary/20260109_last_minute_magic_background_mock_v1.png" id="1_hyk8p"]
 [ext_resource type="Texture2D" uid="uid://dv88hcfogti0o" path="res://assets/sprites/tree_textures.png" id="2_iuonh"]
 [ext_resource type="BitMap" uid="uid://bm6ijexk18b65" path="res://assets/sprites/tree_bitmap.bmp" id="3_k2fmo"]
 [ext_resource type="Texture2D" uid="uid://c86atbgrb2jh" path="res://assets/sprites/present_textures.png" id="4_6q06x"]
 [ext_resource type="BitMap" uid="uid://ctc4r7fee00yk" path="res://assets/sprites/present_bitmap.bmp" id="5_ow5a4"]
+[ext_resource type="Texture2D" uid="uid://bvdyklxc2jhch" path="res://icon.svg" id="6_ow5a4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k2fmo"]
 atlas = ExtResource("2_iuonh")
@@ -29,6 +30,13 @@ region = Rect2(256, 0, 128, 0)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1x3f"]
 atlas = ExtResource("4_6q06x")
 region = Rect2(128, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow5a4"]
+atlas = ExtResource("2_iuonh")
+region = Rect2(256, 0, 128, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hujxm"]
+viewport_path = NodePath("SelectionScreen/TreeEdit/SubViewport")
 
 [node name="Main" type="Node2D"]
 
@@ -59,3 +67,36 @@ texture_normal = SubResource("AtlasTexture_hujxm")
 texture_pressed = SubResource("AtlasTexture_yyfjg")
 texture_hover = SubResource("AtlasTexture_b1x3f")
 texture_click_mask = ExtResource("5_ow5a4")
+
+[node name="TreeEdit" type="SubViewportContainer" parent="SelectionScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2338.0
+offset_top = 42.0
+offset_right = 3450.0
+offset_bottom = 1081.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SelectionScreen/TreeEdit"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1112, 1039)
+render_target_update_mode = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="SelectionScreen/TreeEdit/SubViewport"]
+texture_filter = 1
+position = Vector2(567, 521)
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_ow5a4")
+
+[node name="Sprite2D" type="Sprite2D" parent="SelectionScreen/TreeEdit/SubViewport"]
+position = Vector2(501, 338)
+texture = ExtResource("6_ow5a4")
+
+[node name="TreeDisplay" type="Sprite2D" parent="SelectionScreen"]
+position = Vector2(528, 358)
+scale = Vector2(0.61420864, 0.61838305)
+texture = SubResource("ViewportTexture_hujxm")
