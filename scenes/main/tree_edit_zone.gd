@@ -12,4 +12,4 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_down"):
 		GameState.change_state(GameState.State.MENU)
-		EventBus.move_camera.emit(Vector2(960, 540), 1)
+		EventBus.move_camera.emit(SelectionScreen.SELECTION_CAMERA_LOCATION, 1)

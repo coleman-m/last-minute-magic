@@ -1,3 +1,4 @@
+class_name SelectionScreen
 extends Node2D
 
 const SELECTION_CAMERA_LOCATION : Vector2 = Vector2(960, 540)
