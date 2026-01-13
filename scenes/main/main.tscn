@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcg6m5xsbgw4g"]
+[gd_scene load_steps=18 format=3 uid="uid://bcg6m5xsbgw4g"]
 
 [ext_resource type="Texture2D" uid="uid://cd8lfq868pxox" path="res://ancillary/20260109_last_minute_magic_background_mock_v1.png" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://gyy4exl703hc" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
@@ -37,10 +37,6 @@ region = Rect2(128, 0, 128, 0)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ow5a4"]
 viewport_path = NodePath("TreeResultViewer")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ow5a4"]
-atlas = ExtResource("2_iuonh")
-region = Rect2(0, 0, 128, 0)
 
 [node name="Main" type="Node2D"]
 visibility_layer = 3
@@ -100,9 +96,9 @@ position = Vector2(1920, 0)
 script = ExtResource("9_a8run")
 
 [node name="EditedTree" type="Sprite2D" parent="TreeEditZone"]
-position = Vector2(1210, 750)
-scale = Vector2(5, 5)
-texture = SubResource("AtlasTexture_ow5a4")
+visibility_layer = 3
+position = Vector2(1195, 567)
+texture = ExtResource("10_a8run")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TreeEditZone"]
 offset_left = 1376.0
@@ -111,9 +107,5 @@ offset_right = 1541.0
 offset_bottom = 691.0
 bbcode_enabled = true
 text = "[shake]Edit the tree!"
-
-[node name="20260110LastMinuteMagicChristmasTreeSpriteV2" type="Sprite2D" parent="."]
-position = Vector2(1410, 564)
-texture = ExtResource("10_a8run")
 
 [connection signal="pressed" from="SelectionScreen/TreeButton" to="SelectionScreen" method="_on_tree_button_pressed"]

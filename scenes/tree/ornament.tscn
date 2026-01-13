@@ -4,4 +4,5 @@
 
 [node name="Ornament" type="Sprite2D"]
 visibility_layer = 3
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_vvo84")
