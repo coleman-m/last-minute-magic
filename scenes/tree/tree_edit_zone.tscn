@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl15087tosvlm"]
+
+[ext_resource type="Script" uid="uid://bqp4bbidufn0j" path="res://scenes/main/tree_edit_zone.gd" id="1_qmoq8"]
+[ext_resource type="Texture2D" uid="uid://2vr7d3f4gvl3" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_sprite_v2.png" id="2_monkd"]
+
+[node name="TreeEditZone" type="Node2D"]
+visibility_layer = 3
+script = ExtResource("1_qmoq8")
+
+[node name="EditedTree" type="Sprite2D" parent="."]
+visibility_layer = 3
+position = Vector2(1195, 567)
+texture = ExtResource("2_monkd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 1376.0
+offset_top = 633.0
+offset_right = 1541.0
+offset_bottom = 691.0
+bbcode_enabled = true
+text = "[shake]Edit the tree!"
