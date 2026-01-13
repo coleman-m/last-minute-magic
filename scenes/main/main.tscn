@@ -1,11 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcg6m5xsbgw4g"]
+[gd_scene load_steps=18 format=3 uid="uid://bcg6m5xsbgw4g"]
 
 [ext_resource type="Texture2D" uid="uid://cd8lfq868pxox" path="res://ancillary/20260109_last_minute_magic_background_mock_v1.png" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://gyy4exl703hc" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
 [ext_resource type="Texture2D" uid="uid://dv88hcfogti0o" path="res://assets/sprites/tree_textures.png" id="2_iuonh"]
 [ext_resource type="BitMap" uid="uid://bm6ijexk18b65" path="res://assets/sprites/tree_bitmap.bmp" id="3_k2fmo"]
 [ext_resource type="Texture2D" uid="uid://c86atbgrb2jh" path="res://assets/sprites/present_textures.png" id="4_6q06x"]
 [ext_resource type="BitMap" uid="uid://ctc4r7fee00yk" path="res://assets/sprites/present_bitmap.bmp" id="5_ow5a4"]
 [ext_resource type="Script" uid="uid://dknyu7s6mlfnl" path="res://scenes/result_viewer.gd" id="6_ow5a4"]
+[ext_resource type="Script" uid="uid://2sw35mgoxbs2" path="res://scenes/main/main_camera.gd" id="7_b1x3f"]
+[ext_resource type="Texture2D" uid="uid://bvdyklxc2jhch" path="res://icon.svg" id="9_b1x3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k2fmo"]
 atlas = ExtResource("2_iuonh")
@@ -32,25 +35,27 @@ atlas = ExtResource("4_6q06x")
 region = Rect2(128, 0, 128, 0)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ow5a4"]
-viewport_path = NodePath("ResultViewer")
+viewport_path = NodePath("TreeResultViewer")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ow5a4"]
 atlas = ExtResource("2_iuonh")
-region = Rect2(256, 0, 128, 0)
+region = Rect2(0, 0, 128, 0)
 
 [node name="Main" type="Node2D"]
+visibility_layer = 3
 
 [node name="SelectionScreen" type="Node2D" parent="."]
+script = ExtResource("1_yyfjg")
 
-[node name="Sprite2D" type="Sprite2D" parent="SelectionScreen"]
-position = Vector2(581, 283)
+[node name="Background" type="Sprite2D" parent="SelectionScreen"]
+position = Vector2(909, 549)
 texture = ExtResource("1_hyk8p")
 
 [node name="TreeButton" type="TextureButton" parent="SelectionScreen"]
-offset_left = 565.0
-offset_top = 51.000008
-offset_right = 693.0
-offset_bottom = 179.0
+offset_left = 890.0
+offset_top = 430.0
+offset_right = 1018.0
+offset_bottom = 558.0
 scale = Vector2(5, 5)
 texture_normal = SubResource("AtlasTexture_k2fmo")
 texture_pressed = SubResource("AtlasTexture_l3cfh")
@@ -58,10 +63,10 @@ texture_hover = SubResource("AtlasTexture_6q06x")
 texture_click_mask = ExtResource("3_k2fmo")
 
 [node name="PresentButton" type="TextureButton" parent="SelectionScreen"]
-offset_left = 440.99997
-offset_top = 181.99998
-offset_right = 569.0
-offset_bottom = 310.0
+offset_left = 788.0
+offset_top = 552.99994
+offset_right = 916.0
+offset_bottom = 680.99994
 scale = Vector2(5, 5)
 texture_normal = SubResource("AtlasTexture_hujxm")
 texture_pressed = SubResource("AtlasTexture_yyfjg")
@@ -69,21 +74,49 @@ texture_hover = SubResource("AtlasTexture_b1x3f")
 texture_click_mask = ExtResource("5_ow5a4")
 
 [node name="TreeDisplay" type="Sprite2D" parent="SelectionScreen"]
-position = Vector2(256, 392)
+position = Vector2(960, 540)
 texture = SubResource("ViewportTexture_ow5a4")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(572, 324)
+[node name="TreeDisplay2" type="Sprite2D" parent="SelectionScreen"]
+position = Vector2(616, 431)
+texture = SubResource("ViewportTexture_ow5a4")
 
-[node name="ResultViewer" type="SubViewport" parent="."]
+[node name="MainCamera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("7_b1x3f")
+
+[node name="TreeResultViewer" type="SubViewport" parent="."]
 disable_3d = true
 transparent_bg = true
+canvas_item_default_texture_filter = 0
+canvas_cull_mask = 4294967294
+size = Vector2i(1920, 1080)
 script = ExtResource("6_ow5a4")
 
-[node name="ResultCamera" type="Camera2D" parent="ResultViewer"]
-position = Vector2(2371, 317)
+[node name="TreeResultCamera" type="Camera2D" parent="TreeResultViewer"]
+visibility_layer = 3
+position = Vector2(2880, 540)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(2397, 342.00006)
+[node name="TreeEditZone" type="Node2D" parent="."]
+visibility_layer = 3
+position = Vector2(1920, 0)
+
+[node name="EditedTree" type="Sprite2D" parent="TreeEditZone"]
+position = Vector2(1210, 750)
 scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_ow5a4")
+
+[node name="Sprite2D" type="Sprite2D" parent="TreeEditZone"]
+visibility_layer = 3
+position = Vector2(1187, 652)
+texture = ExtResource("9_b1x3f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TreeEditZone"]
+offset_left = 1376.0
+offset_top = 633.0
+offset_right = 1541.0
+offset_bottom = 691.0
+bbcode_enabled = true
+text = "[shake]Edit the tree!"
+
+[connection signal="pressed" from="SelectionScreen/TreeButton" to="SelectionScreen" method="_on_tree_button_pressed"]
