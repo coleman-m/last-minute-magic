@@ -1,11 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://mxn7xs21rt1l"]
+[gd_scene load_steps=4 format=3 uid="uid://mxn7xs21rt1l"]
 
 [ext_resource type="Script" uid="uid://c1lpnd1j4a6qk" path="res://scenes/paper_snowflake/paper_cutting_test_scene.gd" id="1_gnhhg"]
+
+[sub_resource type="Gradient" id="Gradient_mr44e"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.2784314, 0.54901963, 0.7490196, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6m6yd"]
+gradient = SubResource("Gradient_mr44e")
 
 [node name="PaperCuttingTestScene" type="Node2D"]
 script = ExtResource("1_gnhhg")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 z_index = -1
-position = Vector2(350, 400)
-polygon = PackedVector2Array(0, 0, 400, 0, 346.41, -200)
+position = Vector2(350, 800)
+polygon = PackedVector2Array(0, 0, 1200, 0, 1039.23, -600)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(950, 531.5)
+scale = Vector2(30.6875, 17.609375)
+texture = SubResource("GradientTexture2D_6m6yd")
