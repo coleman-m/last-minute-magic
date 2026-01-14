@@ -1,37 +1,64 @@
 extends Node2D
 
+const LINE02M : float = 1 / sqrt(3)
+const LINE02B : float = -800 - 350 / sqrt(3)
+const LINE21M : float = -1 / (2 - sqrt(3))
+const LINE21B : float = -800 + 1550 / (2 - sqrt(3))
+
 @onready var polygon_2d: Polygon2D = $Polygon2D
 
 var polygon_points : Array[Vector2] = [Vector2(0,0),Vector2(1200,0),Vector2(sqrt(3) / 2 * 1200, -600)]
+var polygon_points_y_inverted_and_transformed : Array[Vector2]
 var polygon_position : Vector2 = Vector2(350, 800)
 var previous_mouse_position : Vector2
 var mouse_positions : Array[Vector2]
 var polygons : Array[PackedVector2Array]
 
-# find which points are inside / outside the area, return the indexs of the points inside the triangle
-func sort_points_in() -> Array[int]:
-	return []
+func update_point_if_outside(point : Vector2) -> Vector2:
+	# y values are being flipped alot to make the math nicer for me
+	point = Vector2(point.x, -point.y)
+	# below 0->1 line
+	if point.y < -800:
+		point = Geometry2D.get_closest_point_to_segment(point, polygon_points_y_inverted_and_transformed[0], polygon_points_y_inverted_and_transformed[1])
+	# above 0->2 line
+	if point.y > LINE02M * point.x + LINE02B:
+		point = Geometry2D.get_closest_point_to_segment(point, polygon_points_y_inverted_and_transformed[0], polygon_points_y_inverted_and_transformed[2])
+	# above 2->1 line
+	if point.y > LINE21M * point.x + LINE21B:
+		point = Geometry2D.get_closest_point_to_segment(point, polygon_points_y_inverted_and_transformed[2], polygon_points_y_inverted_and_transformed[1])
+	
+	point = Vector2(point.x, -point.y)
+	return point
 
 
 func _draw():
 	if mouse_positions.size() < 2: return
+	var do_draw_line : bool = false
 	if Input.is_action_pressed("mouse_down"):
-		draw_polyline(mouse_positions, Color("478cbf"), 10)
+		do_draw_line = true
 	else:
-		polygons.append_array(Geometry2D.merge_polygons(mouse_positions, PackedVector2Array([])))
+		for i in range(mouse_positions.size()):
+			mouse_positions[i] = update_point_if_outside(mouse_positions[i])
+		if mouse_positions.size() > 3:
+			polygons.append_array(Geometry2D.merge_polygons(mouse_positions, PackedVector2Array([])))
 	if not polygons.is_empty():	
 		for poly in polygons:
-			draw_colored_polygon(poly, Color("478cbf"))
+			if Geometry2D.triangulate_polygon(poly).size() > 0:
+				draw_colored_polygon(poly, Color("478cbf"))
+	if do_draw_line:
+		draw_polyline(mouse_positions, Color("AAAAAA"), 10)
 
 func _ready() -> void:
 	previous_mouse_position = get_global_mouse_position()
 	polygon_2d.polygon = polygon_points
 	polygon_2d.position = polygon_position
+	
+	for point in polygon_points:
+		polygon_points_y_inverted_and_transformed.append(Vector2(point.x + polygon_position.x, -point.y - polygon_position.y))
 
 
 func _process(_delta):
 	var current_mouse_position = get_global_mouse_position()
-	
 	if Input.is_action_just_pressed("mouse_down"):
 		mouse_positions.clear()
 		mouse_positions.append(current_mouse_position)
