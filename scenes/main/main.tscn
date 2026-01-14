@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcg6m5xsbgw4g"]
+[gd_scene load_steps=20 format=3 uid="uid://bcg6m5xsbgw4g"]
 
 [ext_resource type="Texture2D" uid="uid://cd8lfq868pxox" path="res://ancillary/20260109_last_minute_magic_background_mock_v1.png" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://gyy4exl703hc" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
@@ -7,9 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://1buj3qtrlfrg" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_sprite_outline.png" id="4_a8run"]
 [ext_resource type="BitMap" uid="uid://b73tou6vtikhj" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_bitmap.bmp" id="5_ouso4"]
 [ext_resource type="BitMap" uid="uid://ctc4r7fee00yk" path="res://assets/sprites/present_bitmap.bmp" id="5_ow5a4"]
-[ext_resource type="Script" path="res://scenes/result_viewer.gd" id="6_ow5a4"]
-[ext_resource type="Script" path="res://scenes/main/main_camera.gd" id="7_b1x3f"]
+[ext_resource type="Script" uid="uid://dknyu7s6mlfnl" path="res://scenes/result_viewer.gd" id="6_ow5a4"]
+[ext_resource type="Script" uid="uid://2sw35mgoxbs2" path="res://scenes/main/main_camera.gd" id="7_b1x3f"]
+[ext_resource type="Texture2D" uid="uid://wlqw4y2xw7ij" path="res://scenes/common/assets/20260112_last_minute_magic_star_v1.png" id="8_blune"]
 [ext_resource type="PackedScene" uid="uid://cl15087tosvlm" path="res://scenes/tree/tree_edit_zone.tscn" id="9_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://mxn7xs21rt1l" path="res://scenes/paper_snowflake/paper_cutting_test_scene.tscn" id="11_ouso4"]
+[ext_resource type="Shader" uid="uid://dkye183j8fi3w" path="res://scenes/paper_snowflake/snowflake.gdshader" id="13_th5th"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hujxm"]
 atlas = ExtResource("4_6q06x")
@@ -25,6 +28,13 @@ region = Rect2(128, 0, 128, 0)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ow5a4"]
 viewport_path = NodePath("TreeResultViewer")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7smn1"]
+shader = ExtResource("13_th5th")
+shader_parameter/key_color = Color(0.2784314, 0.54901963, 0.7490196, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_blune"]
+viewport_path = NodePath("SnowflakeRenderer")
 
 [node name="Main" type="Node2D"]
 visibility_layer = 3
@@ -57,6 +67,13 @@ texture_pressed = SubResource("AtlasTexture_yyfjg")
 texture_hover = SubResource("AtlasTexture_b1x3f")
 texture_click_mask = ExtResource("5_ow5a4")
 
+[node name="SnowflakeButton" type="TextureButton" parent="SelectionScreen"]
+offset_left = 526.0
+offset_top = 101.0
+offset_right = 782.0
+offset_bottom = 357.0
+texture_normal = ExtResource("8_blune")
+
 [node name="TreeDisplay" type="Sprite2D" parent="SelectionScreen"]
 position = Vector2(960, 540)
 texture = SubResource("ViewportTexture_ow5a4")
@@ -80,4 +97,21 @@ position = Vector2(2880, 540)
 [node name="TreeEditZone" parent="." instance=ExtResource("9_b1x3f")]
 position = Vector2(1920, 0)
 
+[node name="PaperCuttingTestScene" parent="." instance=ExtResource("11_ouso4")]
+position = Vector2(3840, 0)
+
+[node name="SnowflakeRenderer" type="SubViewport" parent="."]
+canvas_cull_mask = 4294967294
+size = Vector2i(1920, 1080)
+script = ExtResource("6_ow5a4")
+
+[node name="Camera2D" type="Camera2D" parent="SnowflakeRenderer"]
+position = Vector2(4800, 540)
+
+[node name="SnowflakeFirstPass" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(1014, 942)
+texture = SubResource("ViewportTexture_blune")
+
 [connection signal="pressed" from="SelectionScreen/TreeButton" to="SelectionScreen" method="_on_tree_button_pressed"]
+[connection signal="pressed" from="SelectionScreen/SnowflakeButton" to="SelectionScreen" method="_on_snowflake_button_pressed"]

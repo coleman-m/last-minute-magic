@@ -49,7 +49,7 @@ func _draw():
 		draw_polyline(mouse_positions, Color("AAAAAA"), 10)
 
 func _ready() -> void:
-	previous_mouse_position = get_global_mouse_position()
+	previous_mouse_position = get_local_mouse_position()
 	polygon_2d.polygon = polygon_points
 	polygon_2d.position = polygon_position
 	
@@ -58,17 +58,22 @@ func _ready() -> void:
 
 
 func _process(_delta):
-	var current_mouse_position = get_global_mouse_position()
+	if GameState.current_state != GameState.State.SNOWFLAKE: return
+	var current_mouse_position = get_local_mouse_position()
 	if Input.is_action_just_pressed("mouse_down"):
 		mouse_positions.clear()
 		mouse_positions.append(current_mouse_position)
 		previous_mouse_position = current_mouse_position
-	
+		
 	elif Input.is_action_pressed("mouse_down") and (previous_mouse_position - current_mouse_position).length() > 1:
 		mouse_positions.append(current_mouse_position)
 		previous_mouse_position = current_mouse_position
 		queue_redraw()
-	
+		
 	elif Input.is_action_just_released("mouse_down"):
 		queue_redraw()
+		
+	elif Input.is_action_just_pressed("ui_down"):
+		GameState.change_state(GameState.State.MENU)
+		EventBus.move_camera.emit(SelectionScreen.SELECTION_CAMERA_LOCATION, 1)
 		
