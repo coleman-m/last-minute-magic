@@ -108,9 +108,19 @@ script = ExtResource("6_ow5a4")
 [node name="Camera2D" type="Camera2D" parent="SnowflakeRenderer"]
 position = Vector2(4800, 540)
 
-[node name="SnowflakeFirstPass" type="Sprite2D" parent="."]
+[node name="SnowflakeParts" type="Node2D" parent="."]
+
+[node name="SnowflakeFirstPass" type="Sprite2D" parent="SnowflakeParts"]
 material = SubResource("ShaderMaterial_7smn1")
-position = Vector2(1014, 942)
+position = Vector2(1188, 636)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="SnowflakeFirstPass2" type="Sprite2D" parent="SnowflakeParts"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(1189.0001, 685.00006)
+rotation = 3.1415927
+scale = Vector2(-0.1, 0.1)
 texture = SubResource("ViewportTexture_blune")
 
 [connection signal="pressed" from="SelectionScreen/TreeButton" to="SelectionScreen" method="_on_tree_button_pressed"]
