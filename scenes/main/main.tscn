@@ -110,17 +110,99 @@ position = Vector2(4800, 540)
 
 [node name="SnowflakeParts" type="Node2D" parent="."]
 
-[node name="SnowflakeFirstPass" type="Sprite2D" parent="SnowflakeParts"]
+[node name="Segment_1" type="Node2D" parent="SnowflakeParts"]
+position = Vector2(1119, 666)
+
+[node name="SnowflakeFirstPass" type="Sprite2D" parent="SnowflakeParts/Segment_1"]
 material = SubResource("ShaderMaterial_7smn1")
-position = Vector2(1188, 636)
+position = Vector2(61, -26)
 scale = Vector2(0.1, 0.1)
 texture = SubResource("ViewportTexture_blune")
 
-[node name="SnowflakeFirstPass2" type="Sprite2D" parent="SnowflakeParts"]
+[node name="SnowflakeFirstPass2" type="Sprite2D" parent="SnowflakeParts/Segment_1"]
 material = SubResource("ShaderMaterial_7smn1")
-position = Vector2(1189.0001, 685.00006)
+position = Vector2(61, 26)
+scale = Vector2(0.1, -0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="Segment_2" type="Node2D" parent="SnowflakeParts"]
+position = Vector2(1119, 666)
+rotation = 1.0471976
+
+[node name="SnowflakeFirstPass" type="Sprite2D" parent="SnowflakeParts/Segment_2"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, -26)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="SnowflakeFirstPass2" type="Sprite2D" parent="SnowflakeParts/Segment_2"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, 26)
+scale = Vector2(0.1, -0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="Segment_3" type="Node2D" parent="SnowflakeParts"]
+position = Vector2(1119, 666)
+rotation = 2.0943952
+
+[node name="SnowflakeFirstPass" type="Sprite2D" parent="SnowflakeParts/Segment_3"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, -26)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="SnowflakeFirstPass2" type="Sprite2D" parent="SnowflakeParts/Segment_3"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, 26)
+scale = Vector2(0.1, -0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="Segment_4" type="Node2D" parent="SnowflakeParts"]
+position = Vector2(1119, 666)
 rotation = 3.1415927
-scale = Vector2(-0.1, 0.1)
+
+[node name="SnowflakeFirstPass" type="Sprite2D" parent="SnowflakeParts/Segment_4"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, -26)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="SnowflakeFirstPass2" type="Sprite2D" parent="SnowflakeParts/Segment_4"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, 26)
+scale = Vector2(0.1, -0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="Segment_5" type="Node2D" parent="SnowflakeParts"]
+position = Vector2(1119, 666)
+rotation = 4.1887903
+
+[node name="SnowflakeFirstPass" type="Sprite2D" parent="SnowflakeParts/Segment_5"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, -26)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="SnowflakeFirstPass2" type="Sprite2D" parent="SnowflakeParts/Segment_5"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, 26)
+scale = Vector2(0.1, -0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="Segment_6" type="Node2D" parent="SnowflakeParts"]
+position = Vector2(1119, 666)
+rotation = 5.2359877
+
+[node name="SnowflakeFirstPass" type="Sprite2D" parent="SnowflakeParts/Segment_6"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, -26)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("ViewportTexture_blune")
+
+[node name="SnowflakeFirstPass2" type="Sprite2D" parent="SnowflakeParts/Segment_6"]
+material = SubResource("ShaderMaterial_7smn1")
+position = Vector2(61, 26)
+scale = Vector2(0.1, -0.1)
 texture = SubResource("ViewportTexture_blune")
 
 [connection signal="pressed" from="SelectionScreen/TreeButton" to="SelectionScreen" method="_on_tree_button_pressed"]
