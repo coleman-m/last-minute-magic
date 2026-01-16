@@ -11,8 +11,8 @@ var scene_timer : float = 0.0
 var has_screen_transitioned : bool
 
 func move_snapshot(delta : float) -> void:
-	snapshot_mask.position += Vector2.DOWN * delta * 400
-	snapshot_renderer.position += Vector2.UP * delta * 400
+	snapshot_mask.position += Vector2.DOWN * delta * 750
+	snapshot_renderer.position += Vector2.UP * delta * 750
 
 
 func _on_minigame_start(game_name : String) -> void:
