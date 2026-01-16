@@ -13,4 +13,7 @@ signal move_camera(new_position : Vector2, new_zoom : float)
 signal minigame_start(game_name : String)
 
 
+signal minigame_end
+
+
 signal show_the_snowflake(do_show : bool)

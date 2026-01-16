@@ -6,10 +6,12 @@ const TREE_EDIT_CAMERA_LOCATION : Vector2 = Vector2(3125, 675)
 const SNOWFLAKE_CAMER_LOCATION : Vector2 = Vector2(4800, 540)
 
 func _on_tree_button_pressed() -> void:
+	if GameState.current_state != GameState.State.MENU: return
 	GameState.change_state(GameState.State.TREE)
 	EventBus.move_camera.emit(TREE_EDIT_CAMERA_LOCATION, 2)
 
 
 func _on_snowflake_button_pressed() -> void:
+	if GameState.current_state != GameState.State.MENU: return
 	GameState.change_state(GameState.State.WAIT)
 	EventBus.minigame_start.emit("snowflake")

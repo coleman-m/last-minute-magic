@@ -1,8 +1,9 @@
-[gd_scene load_steps=58 format=3 uid="uid://pl3esytouph2"]
+[gd_scene load_steps=61 format=3 uid="uid://pl3esytouph2"]
 
 [ext_resource type="Script" uid="uid://cm6j3g5wa22ux" path="res://screen_transition.gd" id="1_6b5ll"]
 [ext_resource type="Texture2D" uid="uid://sjvocrgn5u7f" path="res://assets/sprites/snowflake_button.png" id="2_2cp8s"]
 [ext_resource type="Texture2D" uid="uid://gqvc1i0qbb5x" path="res://assets/sprites/transitions/snowflake/snowflake_transition_1.png" id="2_6q4n2"]
+[ext_resource type="Texture2D" uid="uid://bvdyklxc2jhch" path="res://icon.svg" id="2_mnk6g"]
 [ext_resource type="Texture2D" uid="uid://c08bqj4tdxl4n" path="res://assets/sprites/transitions/snowflake/snowflake_transition_2.png" id="3_2cp8s"]
 [ext_resource type="Texture2D" uid="uid://dcfy2v5r33ocf" path="res://assets/sprites/transitions/snowflake/snowflake_transition_11.png" id="4_mnk6g"]
 [ext_resource type="Texture2D" uid="uid://d22hhsaaf5gne" path="res://assets/sprites/transitions/snowflake/snowflake_transition_12.png" id="5_pumw6"]
@@ -62,6 +63,23 @@ region = Rect2(170, 256, 170, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6b5ll"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mnk6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mnk6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mnk6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mnk6g")
+}],
+"loop": false,
+"name": &"menu_return",
+"speed": 1.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mnk6g")
@@ -235,6 +253,17 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_6q4n2"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2cp8s"]
+gradient = SubResource("Gradient_6q4n2")
+width = 1920
+height = 1080
+fill_from = Vector2(0.53271025, 0)
+fill_to = Vector2(0.5373832, 1)
+
 [node name="ScreenTransition" type="Control"]
 z_index = 10
 layout_mode = 3
@@ -250,6 +279,13 @@ script = ExtResource("1_6b5ll")
 [node name="MainAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_6b5ll")
-animation = &"snowflake"
+animation = &"menu_return"
+
+[node name="SnapshotMask" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(960, 540)
+texture = SubResource("GradientTexture2D_2cp8s")
+
+[node name="SnapshotRenderer" type="Sprite2D" parent="SnapshotMask"]
 
 [connection signal="animation_finished" from="MainAnimation" to="." method="_on_main_animation_animation_finished"]
