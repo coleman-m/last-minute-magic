@@ -31,7 +31,7 @@ viewport_path = NodePath("TreeResultViewer")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7smn1"]
 shader = ExtResource("13_th5th")
-shader_parameter/key_color = Color(0.2784314, 0.54901963, 0.7490196, 1)
+shader_parameter/key_color = Color(0.27058825, 0.50980395, 0.50980395, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_blune"]
 viewport_path = NodePath("SnowflakeRenderer")

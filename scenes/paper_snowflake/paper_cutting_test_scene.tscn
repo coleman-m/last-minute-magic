@@ -1,23 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://mxn7xs21rt1l"]
 
 [ext_resource type="Script" uid="uid://c1lpnd1j4a6qk" path="res://scenes/paper_snowflake/paper_cutting_test_scene.gd" id="1_gnhhg"]
-[ext_resource type="Texture2D" uid="uid://wlqw4y2xw7ij" path="res://scenes/common/assets/20260112_last_minute_magic_star_v1.png" id="2_6m6yd"]
+[ext_resource type="Texture2D" uid="uid://cfjjts803sri4" path="res://assets/sprites/snowflake_background.png" id="3_pjtfx"]
 
-[sub_resource type="Gradient" id="Gradient_mr44e"]
+[sub_resource type="Gradient" id="Gradient_6m6yd"]
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.2784314, 0.54901963, 0.7490196, 1)
+colors = PackedColorArray(0.27058825, 0.50980395, 0.50980395, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6m6yd"]
-gradient = SubResource("Gradient_mr44e")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pjtfx"]
+gradient = SubResource("Gradient_6m6yd")
 
 [node name="PaperCuttingTestScene" type="Node2D"]
 visibility_layer = 3
 script = ExtResource("1_gnhhg")
-
-[node name="Example Background Elements" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(958, 496)
-texture = ExtResource("2_6m6yd")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visibility_layer = 3
@@ -30,5 +25,10 @@ polygon = PackedVector2Array(0, 0, 1200, 0, 1039.23, -600)
 visibility_layer = 3
 z_index = -2
 position = Vector2(959.99994, 540)
-scale = Vector2(30, 16.875)
-texture = SubResource("GradientTexture2D_6m6yd")
+scale = Vector2(30.000004, 16.875)
+texture = SubResource("GradientTexture2D_pjtfx")
+
+[node name="BackgroundElements" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(959.99994, 540)
+texture = ExtResource("3_pjtfx")

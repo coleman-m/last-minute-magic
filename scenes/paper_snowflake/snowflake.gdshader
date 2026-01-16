@@ -13,7 +13,7 @@ vec2 RGBtoUV(vec3 rgb) {
 vec4 ProcessChromaKey(sampler2D tex,vec2 texCoord) {
   vec4 rgba = texture(tex, texCoord);
   float chromaDist = distance(RGBtoUV(texture(tex, texCoord).rgb), RGBtoUV(key_color.rgb));
-  float fullMask = pow(clamp((chromaDist - 0.1) / 0., 0., 1.), 1.5);
+  float fullMask = pow(clamp((chromaDist - 0.01) / 0., 0., 1.), 1.5);
   rgba.a = fullMask;
 
   return rgba;

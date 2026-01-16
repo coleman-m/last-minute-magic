@@ -36,7 +36,7 @@ func _draw():
 		if not polygons.is_empty():	
 			for poly in polygons:
 				if Geometry2D.triangulate_polygon(poly).size() > 0:
-					draw_colored_polygon(poly, Color("478cbf"))
+					draw_colored_polygon(poly, Color("458282"))
 		return
 	var do_draw_line : bool = false
 	if Input.is_action_pressed("mouse_down"):
@@ -49,7 +49,7 @@ func _draw():
 	if not polygons.is_empty():	
 		for poly in polygons:
 			if Geometry2D.triangulate_polygon(poly).size() > 0:
-				draw_colored_polygon(poly, Color("478cbf"))
+				draw_colored_polygon(poly, Color("458282"))
 	if do_draw_line:
 		draw_polyline(mouse_positions, Color("AAAAAA"), 10)
 
