@@ -365,13 +365,11 @@ script = ExtResource("1_6b5ll")
 
 [node name="SnapshotMask" type="Sprite2D" parent="."]
 clip_children = 1
-position = Vector2(960, 540)
 texture = SubResource("GradientTexture2D_2cp8s")
 
 [node name="SnapshotRenderer" type="Sprite2D" parent="SnapshotMask"]
 
 [node name="MainAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_6b5ll")
 animation = &"menu_return"
 frame = 24

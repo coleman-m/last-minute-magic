@@ -11,5 +11,5 @@ func _process(_delta: float) -> void:
 		new_ornament.global_position = get_global_mouse_position()
 	
 	if Input.is_action_just_pressed("ui_down"):
-		GameState.change_state(GameState.State.MENU)
-		EventBus.move_camera.emit(SelectionScreen.SELECTION_CAMERA_LOCATION, 1)
+		GameState.change_state(GameState.State.WAIT)
+		EventBus.minigame_end.emit()

@@ -742,10 +742,8 @@ position = Vector2(960, 540)
 script = ExtResource("7_b1x3f")
 
 [node name="ScreenTransition" parent="MainCamera" instance=ExtResource("16_hxu8e")]
-offset_left = -960.0
-offset_top = -540.0
-offset_right = -960.0
-offset_bottom = -540.0
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="TreeResultViewer" type="SubViewport" parent="."]
 disable_3d = true

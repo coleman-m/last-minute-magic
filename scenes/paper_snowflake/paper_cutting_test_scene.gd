@@ -86,6 +86,4 @@ func _process(_delta):
 	elif Input.is_action_just_pressed("ui_down"):
 		GameState.change_state(GameState.State.WAIT)
 		EventBus.minigame_end.emit()
-		#GameState.change_state(GameState.State.MENU)
-		#EventBus.move_camera.emit(SelectionScreen.SELECTION_CAMERA_LOCATION, 1)
 		

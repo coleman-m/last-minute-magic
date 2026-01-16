@@ -28,7 +28,7 @@ func _on_minigame_end() -> void:
 	scene_timer = 0.0
 	has_screen_transitioned = false
 	main_animation.play("menu_return")
-	snapshot_mask.position = Vector2(960, 540)
+	snapshot_mask.position = Vector2(0, 0)
 	snapshot_renderer.position = Vector2(0, 0)
 	snapshot_renderer.texture = ImageTexture.create_from_image(get_viewport().get_texture().get_image())
 
