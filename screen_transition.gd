@@ -9,6 +9,7 @@ var has_screen_transitioned : bool
 
 func _on_minigame_start(game_name : String) -> void:
 	visible = true
+	timer = 0.0
 	has_screen_transitioned = false
 	main_animation.play(game_name)
 
