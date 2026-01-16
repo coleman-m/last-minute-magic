@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bwkrc57jrfhna"
+path="res://.godot/imported/snowflake_button.bmp-a3a9bddc802bf47bbd3e76a7bbb57257.res"
+
+[deps]
+
+source_file="res://assets/sprites/snowflake_button.bmp"
+dest_files=["res://.godot/imported/snowflake_button.bmp-a3a9bddc802bf47bbd3e76a7bbb57257.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -11,5 +11,5 @@ func _on_tree_button_pressed() -> void:
 
 
 func _on_snowflake_button_pressed() -> void:
-	GameState.change_state(GameState.State.SNOWFLAKE)
-	EventBus.move_camera.emit(SNOWFLAKE_CAMER_LOCATION, 1)
+	GameState.change_state(GameState.State.WAIT)
+	EventBus.minigame_start.emit("snowflake")

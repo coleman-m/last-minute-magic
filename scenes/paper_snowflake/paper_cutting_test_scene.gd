@@ -31,6 +31,10 @@ func update_point_if_outside(point : Vector2) -> Vector2:
 	return point
 
 
+func _on_show_snowflake(do_show : bool) -> void:
+	polygon_2d.visible = do_show
+
+
 func _draw():
 	if mouse_positions.size() < 2: 
 		if not polygons.is_empty():	
@@ -54,6 +58,7 @@ func _draw():
 		draw_polyline(mouse_positions, Color("AAAAAA"), 10)
 
 func _ready() -> void:
+	EventBus.show_the_snowflake.connect(_on_show_snowflake)
 	previous_mouse_position = get_local_mouse_position()
 	polygon_2d.polygon = polygon_points
 	polygon_2d.position = polygon_position
