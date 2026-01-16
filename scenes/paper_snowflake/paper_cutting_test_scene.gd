@@ -32,7 +32,12 @@ func update_point_if_outside(point : Vector2) -> Vector2:
 
 
 func _draw():
-	if mouse_positions.size() < 2: return
+	if mouse_positions.size() < 2: 
+		if not polygons.is_empty():	
+			for poly in polygons:
+				if Geometry2D.triangulate_polygon(poly).size() > 0:
+					draw_colored_polygon(poly, Color("478cbf"))
+		return
 	var do_draw_line : bool = false
 	if Input.is_action_pressed("mouse_down"):
 		do_draw_line = true
