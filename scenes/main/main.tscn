@@ -747,6 +747,11 @@ script = ExtResource("7_b1x3f")
 offset_right = 0.0
 offset_bottom = 0.0
 
+[node name="BackgroundSfx" type="AudioStreamPlayer2D" parent="MainCamera"]
+position = Vector2(-960, -540)
+stream = ExtResource("17_nvumn")
+autoplay = true
+
 [node name="TreeResultViewer" type="SubViewport" parent="."]
 disable_3d = true
 transparent_bg = true
@@ -772,10 +777,6 @@ position = Vector2(1920, 0)
 
 [node name="PaperCuttingTestScene" parent="." instance=ExtResource("11_ouso4")]
 position = Vector2(3840, 0)
-
-[node name="BackgroundSfx" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("17_nvumn")
-autoplay = true
 
 [connection signal="pressed" from="SelectionScreen/TreeButton" to="SelectionScreen" method="_on_tree_button_pressed"]
 [connection signal="pressed" from="SelectionScreen/SnowflakeButton" to="SelectionScreen" method="_on_snowflake_button_pressed"]
