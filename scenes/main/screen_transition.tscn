@@ -371,8 +371,8 @@ texture = SubResource("GradientTexture2D_2cp8s")
 
 [node name="MainAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6b5ll")
-animation = &"menu_return"
-frame = 24
-frame_progress = 1.0
+animation = &"snowflake"
+
+[node name="TransitionSfx" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="animation_finished" from="MainAnimation" to="." method="_on_main_animation_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bcg6m5xsbgw4g"]
+[gd_scene load_steps=24 format=3 uid="uid://bcg6m5xsbgw4g"]
 
 [ext_resource type="Script" uid="uid://gyy4exl703hc" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
 [ext_resource type="Texture2D" uid="uid://d2s0tk0g3jki3" path="res://scenes/common/assets/20260119_last_minute_magic_background_wall_v1.png" id="2_hxu8e"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://mxn7xs21rt1l" path="res://scenes/paper_snowflake/paper_cutting_test_scene.tscn" id="11_ouso4"]
 [ext_resource type="Shader" uid="uid://dkye183j8fi3w" path="res://scenes/paper_snowflake/snowflake.gdshader" id="13_th5th"]
 [ext_resource type="PackedScene" uid="uid://pl3esytouph2" path="res://scenes/main/screen_transition.tscn" id="16_hxu8e"]
+[ext_resource type="AudioStream" uid="uid://dokfowm8vmrw" path="res://assets/sounds/Ambience_Suburban_Night by Eric Matyas www.soundimage.org.mp3" id="17_nvumn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hujxm"]
 atlas = ExtResource("4_6q06x")
@@ -771,6 +772,10 @@ position = Vector2(1920, 0)
 
 [node name="PaperCuttingTestScene" parent="." instance=ExtResource("11_ouso4")]
 position = Vector2(3840, 0)
+
+[node name="BackgroundSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_nvumn")
+autoplay = true
 
 [connection signal="pressed" from="SelectionScreen/TreeButton" to="SelectionScreen" method="_on_tree_button_pressed"]
 [connection signal="pressed" from="SelectionScreen/SnowflakeButton" to="SelectionScreen" method="_on_snowflake_button_pressed"]
