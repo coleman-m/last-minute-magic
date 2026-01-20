@@ -2,13 +2,16 @@ extends Control
 
 const MENU_WAIT : float = 1
 const SNOWFLAKE_WAIT : float = 2.8
+const SNOWFLAKE_TRANSITION_SOUND : AudioStreamMP3 = preload("res://assets/sounds/snowflake_transition_sound.mp3")
 
 @onready var main_animation: AnimatedSprite2D = $MainAnimation
 @onready var snapshot_mask: Sprite2D = $SnapshotMask
 @onready var snapshot_renderer: Sprite2D = $SnapshotMask/SnapshotRenderer
+@onready var transition_sfx: AudioStreamPlayer2D = $TransitionSfx
 
 var scene_timer : float = 0.0
 var has_screen_transitioned : bool
+var sound_effects : Dictionary[String, AudioStreamMP3] = {"snowflake" : SNOWFLAKE_TRANSITION_SOUND}
 
 func move_snapshot(delta : float) -> void:
 	snapshot_mask.position += Vector2.DOWN * delta * 750
@@ -20,6 +23,9 @@ func _on_minigame_start(game_name : String) -> void:
 	scene_timer = 0.0
 	has_screen_transitioned = false
 	main_animation.play(game_name)
+	if sound_effects.has(game_name):
+		transition_sfx.stream = sound_effects[game_name]
+		transition_sfx.play()
 
 
 func _on_minigame_end() -> void:
