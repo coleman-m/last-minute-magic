@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://bcg6m5xsbgw4g"]
 
-[ext_resource type="Texture2D" uid="uid://cd8lfq868pxox" path="res://ancillary/20260109_last_minute_magic_background_mock_v1.png" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://gyy4exl703hc" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
+[ext_resource type="Texture2D" uid="uid://d2s0tk0g3jki3" path="res://scenes/common/assets/20260119_last_minute_magic_background_wall_v1.png" id="2_hxu8e"]
 [ext_resource type="Texture2D" uid="uid://2vr7d3f4gvl3" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_sprite_v2.png" id="3_a8run"]
 [ext_resource type="Texture2D" uid="uid://c86atbgrb2jh" path="res://assets/sprites/present_textures.png" id="4_6q06x"]
 [ext_resource type="Texture2D" uid="uid://1buj3qtrlfrg" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_sprite_outline.png" id="4_a8run"]
@@ -46,8 +46,9 @@ visibility_layer = 3
 script = ExtResource("1_yyfjg")
 
 [node name="Background" type="Sprite2D" parent="SelectionScreen"]
-position = Vector2(909, 549)
-texture = ExtResource("1_hyk8p")
+position = Vector2(968, 254)
+scale = Vector2(2, 2)
+texture = ExtResource("2_hxu8e")
 
 [node name="TreeButton" type="TextureButton" parent="SelectionScreen"]
 offset_left = 683.0
