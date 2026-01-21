@@ -33,6 +33,8 @@ func update_point_if_outside(point : Vector2) -> Vector2:
 
 func _on_show_snowflake(do_show : bool) -> void:
 	polygon_2d.visible = do_show
+	if do_show:
+		queue_redraw()
 
 
 func _draw():
@@ -82,8 +84,16 @@ func _process(_delta):
 		
 	elif Input.is_action_just_released("mouse_down"):
 		queue_redraw()
-		
-	elif Input.is_action_just_pressed("ui_down"):
-		GameState.change_state(GameState.State.WAIT)
-		EventBus.minigame_end.emit()
-		
+
+
+func _on_reset_button_pressed() -> void:
+	if GameState.current_state != GameState.State.SNOWFLAKE: return
+	GameState.change_state(GameState.State.WAIT)
+	EventBus.minigame_start.emit("snowflake")
+	polygons.clear()
+
+
+func _on_menu_button_pressed() -> void:
+	if GameState.current_state != GameState.State.SNOWFLAKE: return
+	GameState.change_state(GameState.State.WAIT)
+	EventBus.minigame_end.emit()

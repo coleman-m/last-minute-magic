@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://mxn7xs21rt1l"]
+[gd_scene load_steps=7 format=3 uid="uid://mxn7xs21rt1l"]
 
 [ext_resource type="Script" uid="uid://c1lpnd1j4a6qk" path="res://scenes/paper_snowflake/paper_cutting_test_scene.gd" id="1_gnhhg"]
 [ext_resource type="Texture2D" uid="uid://cfjjts803sri4" path="res://assets/sprites/snowflake_background.png" id="3_pjtfx"]
+[ext_resource type="Texture2D" uid="uid://c5bwtgj7tvq6d" path="res://ui/assets/20260119_last_minute_magic_ui_undo_button.png" id="3_syor2"]
+[ext_resource type="Texture2D" uid="uid://cbdqp7qubhvlq" path="res://ui/assets/20260119_last_minute_magic_dialogue_box.png" id="4_syor2"]
 
 [sub_resource type="Gradient" id="Gradient_6m6yd"]
 offsets = PackedFloat32Array(1)
@@ -32,3 +34,40 @@ texture = SubResource("GradientTexture2D_pjtfx")
 z_index = -2
 position = Vector2(959.99994, 540)
 texture = ExtResource("3_pjtfx")
+
+[node name="ResetButton" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_syor2")
+
+[node name="DialogueBox" type="Sprite2D" parent="."]
+position = Vector2(140, 990)
+texture = ExtResource("4_syor2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
+offset_left = -103.0
+offset_top = -36.0
+offset_right = 116.0
+offset_bottom = 11.0
+bbcode_enabled = true
+text = "[font_size=30][shake]Cut the paper!"
+
+[node name="MenuButton" type="TextureButton" parent="."]
+offset_left = 1648.0
+offset_top = 868.0
+offset_right = 1904.0
+offset_bottom = 1124.0
+texture_normal = ExtResource("4_syor2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuButton"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 89.0
+offset_right = 282.0
+offset_bottom = 136.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=30]Return"
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

@@ -32,6 +32,6 @@ bbcode_enabled = true
 text = "[font_size=30][shake]Edit the tree!"
 
 [node name="Cursor" type="Sprite2D" parent="."]
-position = Vector2(2079, 267)
+position = Vector2(1850, 289)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_p383a")
