@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mxn7xs21rt1l"]
+[gd_scene load_steps=9 format=3 uid="uid://mxn7xs21rt1l"]
 
 [ext_resource type="Script" uid="uid://c1lpnd1j4a6qk" path="res://scenes/paper_snowflake/paper_cutting_test_scene.gd" id="1_gnhhg"]
 [ext_resource type="Texture2D" uid="uid://cfjjts803sri4" path="res://assets/sprites/snowflake_background.png" id="3_pjtfx"]
@@ -11,6 +11,15 @@ colors = PackedColorArray(0.27058825, 0.50980395, 0.50980395, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pjtfx"]
 gradient = SubResource("Gradient_6m6yd")
+
+[sub_resource type="Gradient" id="Gradient_syor2"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.6313726, 0.13725491, 0.3019608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6xmes"]
+gradient = SubResource("Gradient_syor2")
+width = 640
+height = 640
 
 [node name="PaperCuttingTestScene" type="Node2D"]
 visibility_layer = 3
@@ -40,15 +49,20 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("3_syor2")
 
-[node name="DialogueBox" type="Sprite2D" parent="."]
-position = Vector2(140, 990)
-texture = ExtResource("4_syor2")
+[node name="HintButton" type="TextureButton" parent="."]
+offset_left = 11.0
+offset_top = 874.0
+offset_right = 267.0
+offset_bottom = 1130.0
+texture_normal = ExtResource("4_syor2")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
-offset_left = -103.0
-offset_top = -36.0
-offset_right = 116.0
-offset_bottom = 11.0
+[node name="RichTextLabel" type="RichTextLabel" parent="HintButton"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 96.0
+offset_right = 245.0
+offset_bottom = 143.0
+mouse_filter = 2
 bbcode_enabled = true
 text = "[font_size=30][shake]Cut the paper!"
 
@@ -69,5 +83,24 @@ mouse_filter = 2
 bbcode_enabled = true
 text = "[font_size=30]Return"
 
+[node name="Hint" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(943.5, 598)
+texture = SubResource("GradientTexture2D_6xmes")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Hint"]
+offset_left = -278.5
+offset_top = -273.0
+offset_right = 276.5
+offset_bottom = 279.0
+bbcode_enabled = true
+text = "[font_size=40]Use the mouse to cut shapes out of the folded paper. Return to see your results!
+
+
+
+
+Click to continue"
+
 [connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="HintButton" to="." method="_on_hint_button_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

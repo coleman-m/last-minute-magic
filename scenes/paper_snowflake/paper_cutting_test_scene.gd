@@ -6,6 +6,7 @@ const LINE21M : float = -1 / (2 - sqrt(3))
 const LINE21B : float = -800 + 1550 / (2 - sqrt(3))
 
 @onready var polygon_2d: Polygon2D = $Polygon2D
+@onready var hint: Sprite2D = $Hint
 
 var polygon_points : Array[Vector2] = [Vector2(0,0),Vector2(1200,0),Vector2(sqrt(3) / 2 * 1200, -600)]
 var polygon_points_y_inverted_and_transformed : Array[Vector2]
@@ -13,6 +14,7 @@ var polygon_position : Vector2 = Vector2(350, 800)
 var previous_mouse_position : Vector2
 var mouse_positions : Array[Vector2]
 var polygons : Array[PackedVector2Array]
+var has_clicked_close_hint : bool
 
 func update_point_if_outside(point : Vector2) -> Vector2:
 	# y values are being flipped alot to make the math nicer for me
@@ -70,6 +72,14 @@ func _ready() -> void:
 
 
 func _process(_delta):
+	if hint.visible and GameState.current_state == GameState.State.WAIT:
+		if Input.is_action_just_pressed("mouse_down"):
+			has_clicked_close_hint = true
+		if has_clicked_close_hint and Input.is_action_just_released("mouse_down"):
+			hint.visible = false
+			GameState.change_state(GameState.State.SNOWFLAKE)
+			return
+	
 	if GameState.current_state != GameState.State.SNOWFLAKE: return
 	var current_mouse_position = get_local_mouse_position()
 	if Input.is_action_just_pressed("mouse_down"):
@@ -97,3 +107,10 @@ func _on_menu_button_pressed() -> void:
 	if GameState.current_state != GameState.State.SNOWFLAKE: return
 	GameState.change_state(GameState.State.WAIT)
 	EventBus.minigame_end.emit()
+
+
+func _on_hint_button_pressed() -> void:
+	if GameState.current_state != GameState.State.SNOWFLAKE: return
+	GameState.change_state(GameState.State.WAIT)
+	hint.visible = true
+	has_clicked_close_hint = false
