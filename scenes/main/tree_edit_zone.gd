@@ -13,3 +13,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_down"):
 		GameState.change_state(GameState.State.WAIT)
 		EventBus.minigame_end.emit()
+
+
+func _on_menu_button_pressed() -> void:
+	if GameState.current_state != GameState.State.TREE: return
+	GameState.change_state(GameState.State.WAIT)
+	EventBus.minigame_end.emit()

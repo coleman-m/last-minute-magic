@@ -1,0 +1,210 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvoyudixb0egp"]
+
+[ext_resource type="Script" uid="uid://de83awypu7owq" path="res://end_screen.gd" id="1_bjruv"]
+[ext_resource type="Texture2D" uid="uid://bvdyklxc2jhch" path="res://icon.svg" id="2_u8iag"]
+
+[sub_resource type="Gradient" id="Gradient_u8iag"]
+offsets = PackedFloat32Array(0, 0.99333334)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rgagx"]
+gradient = SubResource("Gradient_u8iag")
+width = 1920
+height = 700
+fill_from = Vector2(0.5, 0.6401869)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Animation" id="Animation_te5w0"]
+resource_name = "sleeping"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sleeping/LowerLid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.78, 0.91, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(960, 1442), Vector2(960, 800), Vector2(960, 982), Vector2(960, 731)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sleeping/UpperLid:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.78, 0.91, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(960, -354), Vector2(960, 299), Vector2(960, 105), Vector2(960, 352)]
+}
+
+[sub_resource type="Animation" id="Animation_5mijw"]
+resource_name = "celebrating"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Celebrating/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.72, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(410, 729), Vector2(638, 706), Vector2(581, 554), Vector2(273, 687)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Celebrating/RichTextLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ik6cv"]
+resource_name = "credits"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits/RichTextLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(258, 1117), Vector2(258, 369)]
+}
+
+[sub_resource type="Animation" id="Animation_svx8d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits/RichTextLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(258, 1117)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sleeping/LowerLid:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 1442)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sleeping/UpperLid:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, -354)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Celebrating/Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(410, 729)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Celebrating/RichTextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sr3n7"]
+_data = {
+&"RESET": SubResource("Animation_svx8d"),
+&"celebrating": SubResource("Animation_5mijw"),
+&"credits": SubResource("Animation_ik6cv"),
+&"sleeping": SubResource("Animation_te5w0")
+}
+
+[node name="EndScreen" type="Node2D"]
+script = ExtResource("1_bjruv")
+
+[node name="Celebrating" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Celebrating"]
+position = Vector2(410, 729)
+texture = ExtResource("2_u8iag")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Celebrating"]
+visible = false
+offset_left = 1538.0
+offset_top = 998.0
+offset_right = 1916.0
+offset_bottom = 1066.0
+bbcode_enabled = true
+text = "[font_size=40]Click to continue"
+
+[node name="Sleeping" type="Node2D" parent="."]
+
+[node name="UpperLid" type="Sprite2D" parent="Sleeping"]
+position = Vector2(960, -354)
+texture = SubResource("GradientTexture2D_rgagx")
+
+[node name="LowerLid" type="Sprite2D" parent="Sleeping"]
+position = Vector2(960, 1442)
+rotation = 3.1415927
+texture = SubResource("GradientTexture2D_rgagx")
+
+[node name="Credits" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
+offset_left = 258.0
+offset_top = 1117.0
+offset_right = 1674.0
+offset_bottom = 1937.001
+bbcode_enabled = true
+text = "[center][font_size=40]Music by
+Eric Matyas
+www.soundimage.org
+
+Everything else by
+Ashpacattack
+coleman-m
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sr3n7")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bcg6m5xsbgw4g"]
+[gd_scene load_steps=27 format=3 uid="uid://bcg6m5xsbgw4g"]
 
 [ext_resource type="Script" uid="uid://gyy4exl703hc" path="res://scenes/main/selection_screen.gd" id="1_yyfjg"]
 [ext_resource type="Texture2D" uid="uid://d2s0tk0g3jki3" path="res://scenes/common/assets/20260119_last_minute_magic_background_wall_v1.png" id="2_hxu8e"]
@@ -14,10 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://mpkk57i6je6c" path="res://assets/sprites/snowflake_button_hover.png" id="9_hxu8e"]
 [ext_resource type="BitMap" uid="uid://bwkrc57jrfhna" path="res://assets/sprites/snowflake_button.bmp" id="9_raeie"]
 [ext_resource type="PackedScene" uid="uid://mxn7xs21rt1l" path="res://scenes/paper_snowflake/paper_cutting_test_scene.tscn" id="11_ouso4"]
+[ext_resource type="Texture2D" uid="uid://cbdqp7qubhvlq" path="res://ui/assets/20260119_last_minute_magic_dialogue_box.png" id="12_r4lks"]
 [ext_resource type="Shader" uid="uid://dkye183j8fi3w" path="res://scenes/paper_snowflake/snowflake.gdshader" id="13_th5th"]
 [ext_resource type="PackedScene" uid="uid://pl3esytouph2" path="res://scenes/main/screen_transition.tscn" id="16_hxu8e"]
 [ext_resource type="AudioStream" uid="uid://dokfowm8vmrw" path="res://assets/sounds/Ambience_Suburban_Night by Eric Matyas www.soundimage.org.mp3" id="17_nvumn"]
 [ext_resource type="PackedScene" uid="uid://d4icyssydd3i1" path="res://menus/title/title.tscn" id="18_ou6is"]
+[ext_resource type="PackedScene" uid="uid://dvoyudixb0egp" path="res://scenes/main/end_screen.tscn" id="20_pg34l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hujxm"]
 atlas = ExtResource("4_6q06x")
@@ -740,6 +742,22 @@ position = Vector2(61, 26)
 scale = Vector2(0.1, -0.1)
 texture = SubResource("ViewportTexture_blune")
 
+[node name="EndNightButton" type="TextureButton" parent="SelectionScreen"]
+offset_left = 1648.0
+offset_top = -30.0
+offset_right = 1904.0
+offset_bottom = 226.0
+texture_normal = ExtResource("12_r4lks")
+
+[node name="Label" type="Label" parent="SelectionScreen/EndNightButton"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 90.0
+offset_right = 221.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 32
+text = "Go to bed..."
+
 [node name="MainCamera" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 script = ExtResource("7_b1x3f")
@@ -781,5 +799,8 @@ position = Vector2(3840, 0)
 
 [node name="Title" parent="." instance=ExtResource("18_ou6is")]
 
+[node name="EndScreen" parent="." instance=ExtResource("20_pg34l")]
+
 [connection signal="pressed" from="SelectionScreen/TreeButton" to="SelectionScreen" method="_on_tree_button_pressed"]
 [connection signal="pressed" from="SelectionScreen/SnowflakeButton" to="SelectionScreen" method="_on_snowflake_button_pressed"]
+[connection signal="pressed" from="SelectionScreen/EndNightButton" to="SelectionScreen" method="_on_end_night_button_pressed"]

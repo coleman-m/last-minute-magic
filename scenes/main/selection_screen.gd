@@ -15,3 +15,9 @@ func _on_snowflake_button_pressed() -> void:
 	if GameState.current_state != GameState.State.MENU: return
 	GameState.change_state(GameState.State.WAIT)
 	EventBus.minigame_start.emit("snowflake")
+
+
+func _on_end_night_button_pressed() -> void:
+	if GameState.current_state != GameState.State.MENU: return
+	GameState.change_state(GameState.State.WAIT)
+	EventBus.end_game.emit()

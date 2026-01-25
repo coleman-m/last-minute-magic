@@ -17,3 +17,6 @@ signal minigame_end
 
 
 signal show_the_snowflake(do_show : bool)
+
+
+signal end_game
