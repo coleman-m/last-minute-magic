@@ -25,7 +25,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				animation_player.play("celebrating")
 			else:
 				animation_player.play("disappointment")
-	elif anim_name == "celebrating" or "disappointment":
+	elif anim_name == "celebrating" or anim_name == "disappointment":
 		credits.visible = true
 		has_celebrated = true
 	elif anim_name == "credits":

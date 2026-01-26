@@ -2,6 +2,7 @@ extends Control
 
 const MENU_WAIT : float = 1
 const SNOWFLAKE_WAIT : float = 2.8
+const TREE_WAIT : float = 1.9
 const SNOWFLAKE_TRANSITION_SOUND : AudioStreamMP3 = preload("res://assets/sounds/snowflake_transition_sound.mp3")
 
 @onready var main_animation: AnimatedSprite2D = $MainAnimation
@@ -48,6 +49,10 @@ func _process(delta: float) -> void:
 					has_screen_transitioned = true
 					EventBus.move_camera.emit(SelectionScreen.SNOWFLAKE_CAMER_LOCATION, 1)
 					EventBus.show_the_snowflake.emit(false)
+			"tree":
+				if scene_timer > TREE_WAIT:
+					has_screen_transitioned = true
+					EventBus.move_camera.emit(SelectionScreen.TREE_EDIT_CAMERA_LOCATION, 1)
 			"menu_return":
 				if scene_timer > MENU_WAIT:
 					has_screen_transitioned = true
@@ -70,6 +75,8 @@ func _on_main_animation_animation_finished() -> void:
 			"snowflake":
 				GameState.change_state(GameState.State.SNOWFLAKE)
 				EventBus.show_the_snowflake.emit(true)
+			"tree":
+				GameState.change_state(GameState.State.TREE)
 			"menu_return":
 				GameState.change_state(GameState.State.MENU)
 				snapshot_mask.visible = false

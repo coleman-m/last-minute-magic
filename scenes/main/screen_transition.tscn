@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://pl3esytouph2"]
+[gd_scene load_steps=109 format=3 uid="uid://pl3esytouph2"]
 
 [ext_resource type="Script" uid="uid://cm6j3g5wa22ux" path="res://screen_transition.gd" id="1_6b5ll"]
 [ext_resource type="Texture2D" uid="uid://sjvocrgn5u7f" path="res://assets/sprites/snowflake_button.png" id="2_2cp8s"]
@@ -80,6 +80,30 @@
 [ext_resource type="Texture2D" uid="uid://c15tl1xuraws6" path="res://assets/sprites/transitions/snowflake/snowflake_transition_8.png" id="52_ei11m"]
 [ext_resource type="Texture2D" uid="uid://c1vy7ql4d0sgy" path="res://assets/sprites/transitions/snowflake/snowflake_transition_9.png" id="53_4jnmd"]
 [ext_resource type="Texture2D" uid="uid://c74oq6k4xiygj" path="res://assets/sprites/transitions/snowflake/snowflake_transition_10.png" id="54_c6244"]
+[ext_resource type="Texture2D" uid="uid://dvimb42hbhomm" path="res://assets/sprites/transitions/tree/tree_transition_1.png" id="81_w5uca"]
+[ext_resource type="Texture2D" uid="uid://b2duxpu8r5133" path="res://assets/sprites/transitions/tree/tree_transition_2.png" id="82_ei11m"]
+[ext_resource type="Texture2D" uid="uid://egug84qhasld" path="res://assets/sprites/transitions/tree/tree_transition_3.png" id="83_4jnmd"]
+[ext_resource type="Texture2D" uid="uid://c52t4cckll2u7" path="res://assets/sprites/transitions/tree/tree_transition_4.png" id="84_c6244"]
+[ext_resource type="Texture2D" uid="uid://daeijl44rnv1i" path="res://assets/sprites/transitions/tree/tree_transition_5.png" id="85_cmywo"]
+[ext_resource type="Texture2D" uid="uid://c4nschllspjtj" path="res://assets/sprites/transitions/tree/tree_transition_6.png" id="86_3dv6e"]
+[ext_resource type="Texture2D" uid="uid://b0rx4uyb3r705" path="res://assets/sprites/transitions/tree/tree_transition_7.png" id="87_jhejg"]
+[ext_resource type="Texture2D" uid="uid://bpuvxbta0d252" path="res://assets/sprites/transitions/tree/tree_transition_8.png" id="88_aa7qy"]
+[ext_resource type="Texture2D" uid="uid://c3gksf2cnfnf8" path="res://assets/sprites/transitions/tree/tree_transition_9.png" id="89_2rbkl"]
+[ext_resource type="Texture2D" uid="uid://g0kvg2lgcf57" path="res://assets/sprites/transitions/tree/tree_transition_10.png" id="90_m3dgm"]
+[ext_resource type="Texture2D" uid="uid://cmi4qcf5sfica" path="res://assets/sprites/transitions/tree/tree_transition_11.png" id="91_udeyr"]
+[ext_resource type="Texture2D" uid="uid://ca5m7y3ljgnwu" path="res://assets/sprites/transitions/tree/tree_transition_12.png" id="92_ntxja"]
+[ext_resource type="Texture2D" uid="uid://be37uq3sgyhog" path="res://assets/sprites/transitions/tree/tree_transition_13.png" id="93_asq7n"]
+[ext_resource type="Texture2D" uid="uid://mkko7pb4dhi5" path="res://assets/sprites/transitions/tree/tree_transition_14.png" id="94_sevoo"]
+[ext_resource type="Texture2D" uid="uid://csmlv60lvxnnp" path="res://assets/sprites/transitions/tree/tree_transition_15.png" id="95_1n02y"]
+[ext_resource type="Texture2D" uid="uid://ccp1riduj17gn" path="res://assets/sprites/transitions/tree/tree_transition_16.png" id="96_j3k24"]
+[ext_resource type="Texture2D" uid="uid://k30rmlamnhn2" path="res://assets/sprites/transitions/tree/tree_transition_17.png" id="97_c77vh"]
+[ext_resource type="Texture2D" uid="uid://dvl7fhtq6kqrk" path="res://assets/sprites/transitions/tree/tree_transition_18.png" id="98_s7lku"]
+[ext_resource type="Texture2D" uid="uid://brroafucoq7j5" path="res://assets/sprites/transitions/tree/tree_transition_19.png" id="99_p2mmd"]
+[ext_resource type="Texture2D" uid="uid://cpjx0bmvvcmle" path="res://assets/sprites/transitions/tree/tree_transition_20.png" id="100_b70s2"]
+[ext_resource type="Texture2D" uid="uid://dl8udd8oduig8" path="res://assets/sprites/transitions/tree/tree_transition_21.png" id="101_isx2m"]
+[ext_resource type="Texture2D" uid="uid://dhgv2v780f702" path="res://assets/sprites/transitions/tree/tree_transition_22.png" id="102_71cwd"]
+[ext_resource type="Texture2D" uid="uid://cryycjhvawvle" path="res://assets/sprites/transitions/tree/tree_transition_23.png" id="103_5n6c0"]
+[ext_resource type="Texture2D" uid="uid://fp6i6drm5w34" path="res://assets/sprites/transitions/tree/tree_transition_24.png" id="104_fg5hp"]
 
 [sub_resource type="Gradient" id="Gradient_6q4n2"]
 offsets = PackedFloat32Array(1)
@@ -349,6 +373,83 @@ animations = [{
 "loop": false,
 "name": &"snowflake",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("81_w5uca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_ei11m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_4jnmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_c6244")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_cmywo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_3dv6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_jhejg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_aa7qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_2rbkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_m3dgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_udeyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_ntxja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_asq7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_sevoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_1n02y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_j3k24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_c77vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_s7lku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_p2mmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_b70s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_isx2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_71cwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_5n6c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_fg5hp")
+}],
+"loop": false,
+"name": &"tree",
+"speed": 10.0
 }]
 
 [node name="ScreenTransition" type="Control"]
@@ -371,7 +472,7 @@ texture = SubResource("GradientTexture2D_2cp8s")
 
 [node name="MainAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6b5ll")
-animation = &"snowflake"
+animation = &"tree"
 
 [node name="TransitionSfx" type="AudioStreamPlayer2D" parent="."]
 
