@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl15087tosvlm"]
+[gd_scene load_steps=7 format=3 uid="uid://cl15087tosvlm"]
 
 [ext_resource type="Script" uid="uid://bqp4bbidufn0j" path="res://scenes/main/tree_edit_zone.gd" id="1_qmoq8"]
 [ext_resource type="Texture2D" uid="uid://2vr7d3f4gvl3" path="res://scenes/common/assets/20260110_last_minute_magic_christmas_tree_sprite_v2.png" id="2_monkd"]
 [ext_resource type="Texture2D" uid="uid://c5bwtgj7tvq6d" path="res://ui/assets/20260119_last_minute_magic_ui_undo_button.png" id="3_6fnnh"]
+[ext_resource type="Script" uid="uid://ieflb4ron5b6" path="res://scenes/tree/tree_mask.gd" id="3_hbj8i"]
 [ext_resource type="Texture2D" uid="uid://cbdqp7qubhvlq" path="res://ui/assets/20260119_last_minute_magic_dialogue_box.png" id="4_hbj8i"]
 [ext_resource type="Texture2D" uid="uid://c5njh6x8656n4" path="res://ui/assets/20260119_last_minute_magic_cursor.png" id="5_p383a"]
 
@@ -13,6 +14,11 @@ script = ExtResource("1_qmoq8")
 [node name="EditedTree" type="Sprite2D" parent="."]
 position = Vector2(1195, 567)
 texture = ExtResource("2_monkd")
+region_rect = Rect2(260, 94, 565, 930)
+
+[node name="TreeMask" type="Area2D" parent="EditedTree"]
+position = Vector2(-512, -512)
+script = ExtResource("3_hbj8i")
 
 [node name="UndoButton" type="TextureButton" parent="."]
 offset_left = 1682.0
@@ -22,14 +28,14 @@ offset_bottom = 163.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("3_6fnnh")
 
-[node name="DialogueBox" type="TextureButton" parent="."]
+[node name="StartButton" type="TextureButton" parent="."]
 offset_left = 1060.0
 offset_top = 454.0
 offset_right = 1316.0
 offset_bottom = 710.0
 texture_normal = ExtResource("4_hbj8i")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="StartButton"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 31.0
@@ -63,4 +69,7 @@ mouse_filter = 2
 bbcode_enabled = true
 text = "[font_size=30]Return"
 
+[connection signal="mouse_entered" from="EditedTree/TreeMask" to="." method="_on_tree_mask_mouse_entered"]
+[connection signal="mouse_exited" from="EditedTree/TreeMask" to="." method="_on_tree_mask_mouse_exited"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
