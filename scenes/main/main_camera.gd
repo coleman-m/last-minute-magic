@@ -23,6 +23,10 @@ func _on_state_change() -> void:
 		background_sfx.play()
 
 
+func _on_game_end() -> void:
+	background_sfx.stop()
+
+
 func _process(_delta: float) -> void:
 	screen_transition.scale = Vector2.ONE * (1 / zoom.x)
 
@@ -30,3 +34,4 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
 	EventBus.move_camera.connect(_on_camera_move)
 	EventBus.state_changed.connect(_on_state_change)
+	EventBus.end_game.connect(_on_game_end)
