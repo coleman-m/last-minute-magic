@@ -781,7 +781,7 @@ script = ExtResource("6_ow5a4")
 
 [node name="TreeResultCamera" type="Camera2D" parent="TreeResultViewer"]
 visibility_layer = 3
-position = Vector2(2880, 540)
+position = Vector2(-2724, 540)
 
 [node name="SnowflakeRenderer" type="SubViewport" parent="."]
 canvas_cull_mask = 4294967294
@@ -792,7 +792,7 @@ script = ExtResource("6_ow5a4")
 position = Vector2(4800, 540)
 
 [node name="TreeEditZone" parent="." instance=ExtResource("9_b1x3f")]
-position = Vector2(1920, 0)
+position = Vector2(-3684, 0)
 
 [node name="PaperCuttingTestScene" parent="." instance=ExtResource("11_ouso4")]
 position = Vector2(3840, 0)

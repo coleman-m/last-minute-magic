@@ -14,40 +14,50 @@ script = ExtResource("1_qmoq8")
 position = Vector2(1195, 567)
 texture = ExtResource("2_monkd")
 
-[node name="UndoButton" type="Sprite2D" parent="."]
-position = Vector2(1682, 163)
+[node name="UndoButton" type="TextureButton" parent="."]
+offset_left = 1682.0
+offset_top = 163.0
+offset_right = 1682.0
+offset_bottom = 163.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_6fnnh")
+texture_normal = ExtResource("3_6fnnh")
 
-[node name="DialogueBox" type="Sprite2D" parent="."]
-position = Vector2(1196, 639)
-texture = ExtResource("4_hbj8i")
+[node name="DialogueBox" type="TextureButton" parent="."]
+offset_left = 1060.0
+offset_top = 454.0
+offset_right = 1316.0
+offset_bottom = 710.0
+texture_normal = ExtResource("4_hbj8i")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
-offset_left = -92.0
-offset_top = -36.0
-offset_right = 108.0
-offset_bottom = 11.0
+layout_mode = 1
+anchors_preset = -1
+offset_left = 31.0
+offset_top = 95.0
+offset_right = 231.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
 bbcode_enabled = true
 text = "[font_size=30][shake]Edit the tree!"
 
 [node name="Cursor" type="Sprite2D" parent="."]
-position = Vector2(1850, 289)
+position = Vector2(1678, -65)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_p383a")
 
 [node name="MenuButton" type="TextureButton" parent="."]
-offset_left = 1417.0
-offset_top = 360.0
-offset_right = 1673.0
-offset_bottom = 616.0
+offset_left = 1557.0
+offset_top = 825.0
+offset_right = 1813.0
+offset_bottom = 1081.0
 texture_normal = ExtResource("4_hbj8i")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MenuButton"]
 layout_mode = 0
-offset_left = 63.0
+offset_left = 79.0
 offset_top = 89.0
-offset_right = 282.0
+offset_right = 298.0
 offset_bottom = 136.0
 mouse_filter = 2
 bbcode_enabled = true

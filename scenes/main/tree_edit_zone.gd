@@ -10,7 +10,7 @@ func _process(_delta: float) -> void:
 		add_child(new_ornament)
 		new_ornament.global_position = get_global_mouse_position()
 	
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("ui_cancel"):
 		GameState.change_state(GameState.State.WAIT)
 		EventBus.minigame_end.emit()
 
