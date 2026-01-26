@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvoyudixb0egp"]
+[gd_scene load_steps=12 format=3 uid="uid://dvoyudixb0egp"]
 
 [ext_resource type="Script" uid="uid://de83awypu7owq" path="res://end_screen.gd" id="1_bjruv"]
 [ext_resource type="Texture2D" uid="uid://bvdyklxc2jhch" path="res://icon.svg" id="2_u8iag"]
@@ -13,6 +13,15 @@ width = 1920
 height = 700
 fill_from = Vector2(0.5, 0.6401869)
 fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_rgagx"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_te5w0"]
+gradient = SubResource("Gradient_rgagx")
+width = 1920
+height = 1080
 
 [sub_resource type="Animation" id="Animation_te5w0"]
 resource_name = "sleeping"
@@ -84,6 +93,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(258, 1117), Vector2(258, 369)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits/Backdrop:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_svx8d"]
 length = 0.001
@@ -147,6 +168,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Credits/Backdrop:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sr3n7"]
 _data = {
@@ -187,11 +220,16 @@ texture = SubResource("GradientTexture2D_rgagx")
 
 [node name="Credits" type="Node2D" parent="."]
 
+[node name="Backdrop" type="Sprite2D" parent="Credits"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+texture = SubResource("GradientTexture2D_te5w0")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
 offset_left = 258.0
 offset_top = 1117.0
 offset_right = 1674.0
-offset_bottom = 1937.001
+offset_bottom = 1936.9999
 bbcode_enabled = true
 text = "[center][font_size=40]Music by
 Eric Matyas
